@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "org.gradle.helloworldgradle"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    //用于此应用的库
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //它将文件夹libs中的所有jar文件添加到编译类路径中
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    //这使您可以在SDK版本7以前的任何Android应用程序中使用Material设计主题和其他功能。
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    //这使您可以在SDK版本9以前的任何Android应用程序中使用ConstraintLayout布局类。
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
+}
